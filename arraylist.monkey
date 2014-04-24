@@ -16,6 +16,10 @@ Class ArrayList<T>
 	Field data:T[]
 	Field count:Int
 	
+	Private
+	Global Nil:T
+	Public
+	
 	'constructor/destructor
 	Method New(count:Int = 0)
 		' --- create array list with predetermined sized empty array ---
@@ -67,7 +71,7 @@ Class ArrayList<T>
 
 	Method RemoveFirst:T()
 		' --- remove and return first item ---
-		If count = 0 Return Null
+		If count = 0 Return Nil
 		
 		'get first item so we can return it
 		Local item:T = data[0]
@@ -80,10 +84,10 @@ Class ArrayList<T>
 			Next
 			
 			'null last one as this is now gone
-			data[count - 1] = Null
+			data[count - 1] = Nil
 		Else
 			'need to null first item
-			data[0] = Null
+			data[0] = Nil
 		EndIf
 		
 		'return first item
@@ -92,14 +96,14 @@ Class ArrayList<T>
 	
 	Method RemoveLast:T()
 		' --- remove and return last item ---
-		If count = 0 Return Null
+		If count = 0 Return Nil
 		
 		'get last item
 		Local item:= data[count - 1]
 		
 		'null and remove
 		count -= 1
-		data[count] = Null
+		data[count] = Nil
 		
 		'return last item
 		Return item
@@ -133,7 +137,7 @@ Class ArrayList<T>
 	Method Remove:T(index:Int)
 		' --- remove item at index ---
 		'skip
-		If index < 0 or index >= count Return Null
+		If index < 0 or index >= count Return Nil
 		
 		'get old item
 		Local item:T = data[index]
@@ -144,7 +148,7 @@ Class ArrayList<T>
 		Next
 		
 		'null last one otherwise it doesn't count as gone
-		data[count - 1] = Null
+		data[count - 1] = Nil
 		
 		'decrease count
 		count -= 1
