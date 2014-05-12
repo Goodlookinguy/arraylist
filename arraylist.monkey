@@ -33,6 +33,7 @@ Class ArrayList<T>
 	
 	Method Compare:Bool(lhs:T, rhs:T)
 		Error "Unable to compare items"
+		Return False ' even if code is unreachable, strict mode requires a return
 	End
 	
 	Method Clear:Void()
@@ -157,7 +158,7 @@ Class ArrayList<T>
 		Return item
 	End
 	
-	Method Remove:Void(item:T)
+	Method RemoveEach:Void(item:T)
 		' --- remove all instances of item ---
 		Local i:Int
 		While i < count
